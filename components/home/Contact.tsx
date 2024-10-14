@@ -93,7 +93,7 @@ const chatMedia = [
 
 export default function Contact() {
   return (
-    <section className="px-[200px] py-20 space-y-10">
+    <section className="px-8 lg:px-[200px] py-20 space-y-10">
       <div className="px-8 space-y-8">
         <div className="space-y-5">
           <div className="space-y-3">
@@ -106,7 +106,7 @@ export default function Contact() {
         </div>
       </div>
 
-      <div className="flex gap-10">
+      <div className="flex gap-10 flex-wrap">
         {chatMedia.map((item, index) => (
           <div
             key={index}

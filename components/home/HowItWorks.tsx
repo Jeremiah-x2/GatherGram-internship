@@ -21,7 +21,7 @@ const howItWorks: { title: string; desc: string }[] = [
 
 export default function HowItWorks() {
   return (
-    <section className="bg-[#212121] py-[120px] text-white space-y-10">
+    <section className="bg-[#212121] py-[120px] relative text-white space-y-10">
       <div className="max-w-500px mx-[145px] text-center">
         <h3 className="font-semibold text-[48px] leading-[60px]">
           How It Works
@@ -31,7 +31,7 @@ export default function HowItWorks() {
           to the reception.&quot;
         </p>
       </div>
-      <div className="text-black flex gap-6 bg-[url('/images/path.svg')] bg-cover h-[433px] items-center py-2 px-[145px]">
+      <div className="text-black grid grid-cols-1 md:grid-cols-2 justify-items-center lg:flex gap-6 bg-[url('/images/path.svg')] bg-cover lg:h-[433px] items-center py-2 px-8 lg:px-[145px]">
         {howItWorks.map((item, index) => (
           <div
             key={index}

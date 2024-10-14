@@ -56,7 +56,7 @@ export default function Pricing() {
         </div>
       </div>
 
-      <div className="flex justify-center gap-8 mt-20">
+      <div className="flex flex-col lg:flex-row px-8 justify-center gap-8 mt-20">
         <div className="border-[1px] rounded-2xl shadow-lg">
           <div className="px-8 pt-8 pb-6 flex justify-between items-center">
             <div>

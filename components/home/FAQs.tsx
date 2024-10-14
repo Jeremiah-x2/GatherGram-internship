@@ -53,7 +53,7 @@ const faqs: {
 
 export default function FAQs() {
   return (
-    <section className="pt-[100px] pb-20 px-[320px] space-y-16">
+    <section className="pt-[100px] pb-20 px-8 lg:px-[160px] 2xl:px-[320px] space-y-16">
       <div className="space-y-8 text-center">
         <h3 className="text-[#101828] text-4xl font-semibold">
           Frequently asked questions
@@ -63,7 +63,7 @@ export default function FAQs() {
         </p>
       </div>
 
-      <div className="grid grid-cols-3 px-8 gap-y-16 gap-x-8">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 px-8 gap-y-16 gap-x-8">
         {faqs.map((item, index) => (
           <div key={index} className="text-center">
             <span className="inline-flex w-12 h-12 bg-[#FFE3F3] border-8 border-[#FFF8FC] rounded-full items-center justify-center">

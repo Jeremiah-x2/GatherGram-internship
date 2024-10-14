@@ -1,6 +1,6 @@
 import { montserrat } from "@/lib/fonts";
 import React from "react";
-import Logo from "./ui/Logo";
+import Logo from "../ui/Logo";
 
 const navigate: string[] = [
   "Home",
@@ -18,8 +18,8 @@ const partner: string[] = ["Our Partners", "Subscribers"];
 export default function Footer() {
   return (
     <footer>
-      <div className="px-[180px] py-16 bg-[#212121] text-white">
-        <div className="flex justify-between mb-16">
+      <div className="px-8 lg:px-[180px] py-16 bg-[#212121] text-white">
+        <div className="flex flex-col lg:flex-row gap-4 justify-between mb-16">
           <div className="space-y-[10px]">
             <h5 className="font-semibold text-2xl">Join our newsletter</h5>
             <p className="text-xl">
@@ -38,7 +38,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="flex justify-between">
+        <div className="flex justify-between flex-col lg:flex-row">
           <div>
             <Logo color="white" />
             <p className="w-[289px] my-6">
@@ -48,7 +48,7 @@ export default function Footer() {
             <div></div>
           </div>
 
-          <div className="flex gap-[120px]">
+          <div className="lg:flex grid grid-cols-2 gap-8 lg:gap-[120px]">
             <div className="space-y-4">
               <p className="font-semibold text-base">Navigate</p>
               <ul>
@@ -94,7 +94,7 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="flex justify-between px-[201px] py-[15px]">
+      <div className="flex justify-between px-8 flex-wrap lg:px-[201px] py-[15px]">
         <p>&copy; 2024 GatherGram, We love our users!</p>
         <p>Copyright &copy; 2024 all rights reserved</p>
         <ul className="flex gap-4">

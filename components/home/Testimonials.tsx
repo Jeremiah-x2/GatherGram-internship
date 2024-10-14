@@ -2,15 +2,12 @@
 
 import React from "react";
 import Image from "next/image";
-import { Star } from "lucide-react";
+import { ChevronLeft, ChevronRight, Star } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { A11y, Navigation, Pagination, Scrollbar } from "swiper/modules";
+import { Mousewheel, Navigation } from "swiper/modules";
 
 import "swiper/css";
 import "swiper/css/navigation";
-import "swiper/css/a11y";
-import "swiper/css/pagination";
-import "swiper/css/scrollbar";
 
 const testimonies: {
   name: string;
@@ -54,9 +51,9 @@ const testimonies: {
 
 export default function Testimonials() {
   return (
-    <section className="p-[120px] bg-[#FFF6FC]">
-      <div className="px-8 space-y-16">
-        <div className="flex justify-between">
+    <section className="px-8 py-14 lg:p-[120px] bg-[#FFF6FC]">
+      <div className="lg:px-8 space-y-16">
+        <div className="flex justify-between flex-col lg:flex-row gap-4">
           <div className="space-y-5">
             <h4 className="font-semibold text-4xl text-[#101828]">
               Don&apos;t just take our word for it
@@ -77,11 +74,18 @@ export default function Testimonials() {
 
         <Swiper
           className=""
-          slidesPerView={4}
-          modules={[Navigation, Pagination, Scrollbar, A11y]}
-          navigation={{ nextEl: ".next", prevEl: ".prev" }}
-          pagination={{ clickable: true }}
-          scrollbar={{ draggable: true }}
+          slidesPerView={1}
+          modules={[Navigation, Mousewheel]}
+          navigation={{ enabled: true, nextEl: ".next", prevEl: ".prev" }}
+          mousewheel={{ enabled: true }}
+          breakpoints={{
+            720: { slidesPerView: 2 },
+            1024: {
+              slidesPerView: 4,
+            },
+          }}
+          onSwiper={(swiper) => console.log(swiper)}
+          onSlideChange={() => console.log("slide change")}
         >
           {testimonies.map((testimony, index) => (
             <SwiperSlide key={index}>
@@ -122,9 +126,13 @@ export default function Testimonials() {
             </SwiperSlide>
           ))}
         </Swiper>
-        <div>
-          <button className=".prev">Prev</button>
-          <button className=".next">Next</button>
+        <div className="flex gap-4">
+          <button className=".prev w-14 h-14 rounded-full border flex items-center justify-center border-[#EAECF0]">
+            <ChevronLeft size={40} stroke="#667085" strokeWidth={2} />
+          </button>
+          <button className=".next w-14 h-14 rounded-full border flex items-center justify-center border-[#EAECF0]">
+            <ChevronRight size={40} stroke="#667085" strokeWidth={2} />
+          </button>
         </div>
       </div>
     </section>

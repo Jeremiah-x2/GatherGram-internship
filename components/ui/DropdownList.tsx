@@ -37,7 +37,7 @@ export function CountryDropdown({
           <ChevronDown />
         </div>
         {showCountryList && (
-          <div className="fixed z-30 py-8 h-[100dvh] space-y-4 overflow-scroll bg-white shadow-[0_0_20px_rgba(0,0,0,0.3)] rounded-lg px-8">
+          <div className="fixed z-50 py-8 h-[100dvh] space-y-4 overflow-scroll bg-white shadow-[0_0_20px_rgba(0,0,0,0.3)] rounded-lg px-8">
             {dropdownData &&
               dropdownData.map((item: ICountry, index: number) => (
                 <>
@@ -69,14 +69,16 @@ export function CountryDropdown({
 }
 
 interface IInput {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   register: any;
-  name: string;
+  name?: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   errors: any;
 }
 
 export function MobileDropdown({
   dropdownData,
-  inputNumber: { register, name, errors },
+  inputNumber: { register, errors },
 }: {
   dropdownData: ICountry[];
   inputNumber: IInput;
@@ -87,7 +89,7 @@ export function MobileDropdown({
   );
 
   return (
-    <div className="space-y-[8px]">
+    <div className="space-y-[8px] relative">
       <p className="text-base font-semibold">Mobile Number</p>
       <div className="relative h-14 border border-[#323232] border-opacity-[0.4] flex items-center px-4 py-3 rounded-lg">
         <div className="flex justify-between flex-1 items-center">
@@ -103,15 +105,17 @@ export function MobileDropdown({
             />{" "}
             <p className="text-base">{selectedCountry.code}</p>
           </div>
-          <input
-            className="flex-1 px-4 border-none outline-none focus:border-none focus:outline-none active:outline-none active:border-none"
-            type=""
-            {...register("phoneNumber")}
-          />
+          <div className="flex-1 h-full">
+            <input
+              className="flex-1 h-full px-4 border-none outline-none focus:border-none focus:outline-none active:outline-none active:border-none"
+              type=""
+              {...register("phoneNumber")}
+            />
+          </div>
           <ChevronDown onClick={() => setShowCountryList((prev) => !prev)} />
         </div>
         {showCountryList && (
-          <div className="absolute h-[100dvh] overflow-scroll bg-white shadow-[0_0_20px_rgba(0,0,0,0.3)] rounded-lg px-8 py-4 space-y-2">
+          <div className="absolute z-50 h-[100dvh] overflow-scroll bg-white shadow-[0_0_20px_rgba(0,0,0,0.3)] rounded-lg px-8 py-4 space-y-2">
             {dropdownData &&
               dropdownData.map((item: ICountry, index: number) => (
                 <>
@@ -141,7 +145,11 @@ export function MobileDropdown({
           </div>
         )}
       </div>
-      {errors["phoneNumber"] && <div>{errors["phoneNumber"].message}</div>}
+      {errors["phoneNumber"] && (
+        <div className="text-[#f51629] absolute -bottom-6">
+          {errors["phoneNumber"].message}
+        </div>
+      )}
     </div>
   );
 }
